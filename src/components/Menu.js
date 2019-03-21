@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-//import { withNavigation } from 'react-navigation';
 import {
   Button,
-  Icon,
   Text,
   Footer,
   FooterTab
@@ -14,30 +12,32 @@ class Menu extends Component {
   }
 
   render () {
+    const {
+      renderIcon,
+      getLabelText,
+      onTabPress,
+      navigation
+    } = this.props;
+
+    const { routes, index: activeRouteIndex } = navigation.state;
+
     return (
       <Footer>
         <FooterTab>
-          <Button
-            vertical
-            onPress={() => this.props.navigation.navigate('Home')}
-          >
-            <Icon name="apps" />
-            <Text>Home</Text>
-          </Button>
-          <Button
-            vertical
-            onPress={() => this.props.navigation.navigate('Exercises')}
-          >
-            <Icon name="navigate" />
-            <Text>Exercises</Text>
-          </Button>
-          <Button
-            vertical
-            onPress={() => this.props.navigation.navigate('Statistics')}
-          >
-            <Icon name="person" />
-            <Text>Statistics</Text>
-          </Button>
+          {routes.map((route, routeIndex) => {
+            const isRouteActive = routeIndex === activeRouteIndex;
+            return (
+              <Button
+                vertical
+                key={routeIndex}
+                active={isRouteActive}
+                onPress={() => { onTabPress({ route }) }}
+              >
+                {renderIcon({ route })}
+                <Text>{getLabelText({ route })}</Text>
+              </Button>
+            );
+          })}
         </FooterTab>
       </Footer>
     );

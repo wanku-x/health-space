@@ -1,5 +1,5 @@
 import React from "react";
-import { Root } from "native-base";
+import { Root, Icon } from "native-base";
 import { createBottomTabNavigator, createStackNavigator, createAppContainer } from "react-navigation";
 
 import Home from "./screens/Home";
@@ -37,9 +37,27 @@ const StatisticsStack = createStackNavigator(
 
 const BottomTabs = createBottomTabNavigator(
   {
-    Home: HomeStack,
-    Exercises: ExercisesStack,
-    Statistics: StatisticsStack,
+    Home: {
+      screen: HomeStack,
+      navigationOptions: {
+        title: 'Главная',
+        tabBarIcon: () => <Icon name="home" />
+      }
+    },
+    Exercises: {
+      screen: ExercisesStack,
+      navigationOptions: {
+        title: 'Упражнения',
+        tabBarIcon: () => <Icon name="walk" />
+      }
+    },
+    Statistics: {
+      screen: StatisticsStack,
+      navigationOptions: {
+        title: 'Статистика',
+        tabBarIcon: () => <Icon name="stats" />
+      }
+    },
   },
   {
     initialRouteName: "Home",
