@@ -61,9 +61,6 @@ const BottomTabs = createBottomTabNavigator(
   },
   {
     initialRouteName: "Home",
-    // contentOptions: {
-    //   activeTintColor: "#e91e63"
-    // },
     tabBarComponent: props => <Menu {...props} />
   }
 );
