@@ -8,6 +8,8 @@ import {
 import Swiper from '@nart/react-native-swiper';
 
 const firstBg = require('../../assets/images/bg1.png');
+const secondBg = require('../../assets/images/bg2.png');
+const thirdBg = require('../../assets/images/bg3.png');
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -34,13 +36,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#97CAE5',
   },
   slide3: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#92BBD9',
   },
   text: {
     color: '#fff',
@@ -62,15 +62,24 @@ class Home extends Component {
           nextButton={<Icon name="arrow-dropright" />}
           prevButton={<Icon name="arrow-dropleft" />}
         >
-          <ImageBackground source={firstBg} style={styles.slide1}>
+          <ImageBackground
+            source={firstBg}
+            style={styles.slide1}
+          >
             <Text style={styles.text}>Hello Swiper</Text>
           </ImageBackground>
-          <View style={styles.slide2}>
+          <ImageBackground
+            source={secondBg}
+            style={styles.slide2}
+          >
             <Text style={styles.text}>Beautiful</Text>
-          </View>
-          <View style={styles.slide3}>
+          </ImageBackground>
+          <ImageBackground
+            source={thirdBg}
+            style={styles.slide3}
+          >
             <Text style={styles.text}>And simple</Text>
-          </View>
+          </ImageBackground>
         </Swiper>
       </Container>
     );
