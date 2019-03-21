@@ -1,28 +1,77 @@
 import React, { Component } from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, StyleSheet, View, ImageBackground } from "react-native";
 import {
   Container,
-  Content,
-  Text
+  Text,
+  Icon,
 } from "native-base";
+import Swiper from '@nart/react-native-swiper';
+
+const firstBg = require('../../assets/images/bg1.png');
+
+const styles = StyleSheet.create({
+  wrapper: {
+  },
+  buttons: {
+    backgroundColor: 'transparent',
+    flexDirection: 'column',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    flex: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    paddingTop: 40,
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5',
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold',
+  }
+})
 
 class Home extends Component {
   render() {
     return (
       <Container>
         <StatusBar backgroundColor="rgba(0, 0, 0, 0.3)" barStyle="light-content" translucent/>
-        <Content>
-          <Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum natus assumenda corporis dignissimos consequatur praesentium maiores quis recusandae? Soluta corporis consectetur provident ab magni qui cupiditate veritatis iste. Labore?</Text>
-          <Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum natus assumenda corporis dignissimos consequatur praesentium maiores quis recusandae? Soluta corporis consectetur provident ab magni qui cupiditate veritatis iste. Labore?</Text>
-          <Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum natus assumenda corporis dignissimos consequatur praesentium maiores quis recusandae? Soluta corporis consectetur provident ab magni qui cupiditate veritatis iste. Labore?</Text>
-          <Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum natus assumenda corporis dignissimos consequatur praesentium maiores quis recusandae? Soluta corporis consectetur provident ab magni qui cupiditate veritatis iste. Labore?</Text>
-          <Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum natus assumenda corporis dignissimos consequatur praesentium maiores quis recusandae? Soluta corporis consectetur provident ab magni qui cupiditate veritatis iste. Labore?</Text>
-          <Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum natus assumenda corporis dignissimos consequatur praesentium maiores quis recusandae? Soluta corporis consectetur provident ab magni qui cupiditate veritatis iste. Labore?</Text>
-          <Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum natus assumenda corporis dignissimos consequatur praesentium maiores quis recusandae? Soluta corporis consectetur provident ab magni qui cupiditate veritatis iste. Labore?</Text>
-          <Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum natus assumenda corporis dignissimos consequatur praesentium maiores quis recusandae? Soluta corporis consectetur provident ab magni qui cupiditate veritatis iste. Labore?</Text>
-          <Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum natus assumenda corporis dignissimos consequatur praesentium maiores quis recusandae? Soluta corporis consectetur provident ab magni qui cupiditate veritatis iste. Labore?</Text>
-          <Text>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum natus assumenda corporis dignissimos consequatur praesentium maiores quis recusandae? Soluta corporis consectetur provident ab magni qui cupiditate veritatis iste. Labore?</Text>
-        </Content>
+        <Swiper
+          // horizontal={false}
+          loop={false}
+          showsButtons
+          // buttonWrapperStyle={styles.buttons}
+          nextButton={<Icon name="arrow-dropright" />}
+          prevButton={<Icon name="arrow-dropleft" />}
+        >
+          <ImageBackground source={firstBg} style={styles.slide1}>
+            <Text style={styles.text}>Hello Swiper</Text>
+          </ImageBackground>
+          <View style={styles.slide2}>
+            <Text style={styles.text}>Beautiful</Text>
+          </View>
+          <View style={styles.slide3}>
+            <Text style={styles.text}>And simple</Text>
+          </View>
+        </Swiper>
       </Container>
     );
   }

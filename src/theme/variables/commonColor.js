@@ -136,16 +136,16 @@ export default {
 
   // Footer
   footerHeight: 55,
-  footerDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
+  footerDefaultBg: platform === "ios" ? "#F8F8F8" : "#F8F8F8",
   footerPaddingBottom: 0,
 
   // FooterTab
-  tabBarTextColor: platform === "ios" ? "#737373" : "#bfc6ea",
+  tabBarTextColor: platform === "ios" ? "#737373" : "#737373",
   tabBarTextSize: platform === "ios" ? 14 : 11,
-  activeTab: platform === "ios" ? "#007aff" : "#fff",
+  activeTab: platform === "ios" ? "#007aff" : "#007aff",
   sTabBarActiveTextColor: "#007aff",
-  tabBarActiveTextColor: platform === "ios" ? "#2874F0" : "#fff",
-  tabActiveBgColor: platform === "ios" ? "#cde1f9" : "#3F51B5",
+  tabBarActiveTextColor: platform === "ios" ? "#2874F0" : "#2874F0",
+  tabActiveBgColor: platform === "ios" ? "#cde1f9" : "#cde1f9",
 
   // Header
   toolbarBtnColor: platform === "ios" ? "#007aff" : "#fff",
