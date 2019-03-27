@@ -1,28 +1,31 @@
-import React from "react";
-import { Root, Icon } from "native-base";
-import { createBottomTabNavigator, createStackNavigator, createAppContainer } from "react-navigation";
+import React from 'react';
+import { Root, Icon } from 'native-base';
+import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 
-import Home from "./screens/Home";
-import Exercises from "./screens/Exercises"; 
-import Statistics from "./screens/Statistics";
+import Home from './screens/Home';
+import Sets from './screens/Sets'; 
+import Statistics from './screens/Statistics';
 
-import Menu from "./components/Menu";
+import Menu from './components/Menu';
+import Set from './components/Set';
+
+import setsArray from './variables/setsArray';
 
 const HomeStack = createStackNavigator(
   {
     Home: Home,
   },
   {
-    headerMode: "none",
+    headerMode: 'none',
   }
 );
 
-const ExercisesStack = createStackNavigator(
+const SetsStack = createStackNavigator(
   {
-    Exercises: Exercises,
+    Sets: Sets,
   },
   {
-    headerMode: "none",
+    headerMode: 'none',
   }
 );
 
@@ -31,7 +34,7 @@ const StatisticsStack = createStackNavigator(
     Statistics: Statistics,
   },
   {
-    headerMode: "none",
+    headerMode: 'none',
   }
 );
 
@@ -44,10 +47,10 @@ const BottomTabs = createBottomTabNavigator(
         tabBarIcon: () => <Icon name="home" />
       }
     },
-    Exercises: {
-      screen: ExercisesStack,
+    Sets: {
+      screen: SetsStack,
       navigationOptions: {
-        title: 'Упражнения',
+        title: 'Комплексы',
         tabBarIcon: () => <Icon name="walk" />
       }
     },
@@ -60,12 +63,28 @@ const BottomTabs = createBottomTabNavigator(
     },
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: 'Home',
     tabBarComponent: props => <Menu {...props} />
   }
 );
 
-const AppContainer = createAppContainer(BottomTabs);
+const Routes = { BottomTabs: BottomTabs };
+
+for (let set in setsArray) {
+  Routes[set] = {
+    screen: (props) => <Set route={set} {...props} />
+  }
+}
+
+const Navigation = createStackNavigator(
+  Routes,
+  {
+    initialRouteName: 'BottomTabs',
+    headerMode: 'none',
+  }
+);
+
+const AppContainer = createAppContainer(Navigation);
 
 const App = () => (
   <Root>

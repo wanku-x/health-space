@@ -1,26 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, Button } from 'react-native';
-import { SetsArray } from '../variables/SetsArray';
+import setsArray from '../variables/setsArray';
 
-class Set extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render () {
-    const { route, navigation } = this.props;
-
-    return (
-      <View>
-        <Text>{SetsArray[route].name}</Text>
-        <Button
-          title="Go back"
-          onPress={() => navigation.goBack()}
-        />
-        <Text>{SetsArray[route].name}</Text>
-      </View>
-    );
-  }
-}
+const Set = ({ route, navigation }) => (
+  <View>
+    <Text>{setsArray[route].name}</Text>
+    <Button
+      title="Go back"
+      onPress={() => navigation.goBack()}
+    />
+    <Text>{setsArray[route].name}</Text>
+  </View>
+);
 
 export default Set;

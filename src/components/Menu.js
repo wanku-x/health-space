@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Button,
   Text,
   Footer,
   FooterTab
-} from "native-base";
+} from 'native-base';
 
 class Menu extends Component {
   constructor(props) {
