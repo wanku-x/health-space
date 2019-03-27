@@ -1,15 +1,20 @@
 import React, { Component } from "react";
-import { StatusBar, StyleSheet, View, ImageBackground } from "react-native";
+import { StatusBar, StyleSheet, Image, ImageBackground } from "react-native";
 import {
   Container,
   Text,
   Icon,
+  Button,
 } from "native-base";
 import Swiper from '@nart/react-native-swiper';
 
 const firstBg = require('../../assets/images/bg1.png');
 const secondBg = require('../../assets/images/bg2.png');
 const thirdBg = require('../../assets/images/bg3.png');
+
+const smilePerson = require('../../assets/images/person/smile.png');
+const sadPerson = require('../../assets/images/person/sad.png');
+const normalPerson = require('../../assets/images/person/normal.png');
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -29,8 +34,10 @@ const styles = StyleSheet.create({
   },
   slide1: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
+    paddingTop: 35,
+    paddingBottom: 46,
   },
   slide2: {
     flex: 1,
@@ -42,8 +49,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  personAdvice: {
+    alignSelf: 'center',
+    backgroundColor: '#f00',
+  },
+  person: {
+    height: '40%',
+    width: '50%',
+  },
   text: {
-    color: '#fff',
+    color: '#f00',
     fontSize: 30,
     fontWeight: 'bold',
   }
@@ -66,7 +81,15 @@ class Home extends Component {
             source={firstBg}
             style={styles.slide1}
           >
-            <Text style={styles.text}>Hello Swiper</Text>
+            <Text style={styles.personAdvice}>ХУЙ!!!</Text>
+            <Button block rounded style={{width: '50%', alignSelf: 'center', marginBottom: 30}}>
+              <Text>Primary</Text>
+            </Button>
+            <Image
+              source={smilePerson}
+              style={styles.person}
+              resizeMode={'contain'}
+            />
           </ImageBackground>
           <ImageBackground
             source={secondBg}
