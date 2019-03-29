@@ -20,8 +20,8 @@ const Home = (props) => (
     <Swiper
       loop={false}
       showsButtons
-      nextButton={<Icon name="arrow-dropright" />}
-      prevButton={<Icon name="arrow-dropleft" />}
+      nextButton={<Icon name="arrow-dropright" style={{color: "#007aff"}} />}
+      prevButton={<Icon name="arrow-dropleft" style={{color: "#007aff"}} />}
     >
       <HomeFirstScreen />
       <HomeSecondScreen />

@@ -7,8 +7,6 @@ const setsArray = {
   Set2: {
     name: 'Комплекс2',
     set: [
-      exercise4,
-      exercise3
     ]
   },
 }
