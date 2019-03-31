@@ -11,7 +11,7 @@ import {
   ListItem
 } from 'native-base';
 
-import sets from '../variables/sets';
+import { setList } from '../variables/sets';
 
 const styles = StyleSheet.create({
   content: {
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 const Sets = ({ navigation }) => (
   <Container>
     <Content style={styles.content}>
-      {sets.map((setGroup, i) => (
+      {setList.map((setGroup, i) => (
         <React.Fragment key={i}>
           <Separator bordered>
             <Text>{setGroup.name.toUpperCase()}</Text>
