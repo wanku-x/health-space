@@ -34,7 +34,7 @@ class Menu extends Component {
                 onPress={() => { onTabPress({ route }) }}
               >
                 {renderIcon({ route })}
-                <Text>{getLabelText({ route })}</Text>
+                <Text style={{ fontWeight: '500' }}>{getLabelText({ route })}</Text>
               </Button>
             );
           })}

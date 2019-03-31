@@ -1,11 +1,8 @@
 import React from 'react';
 import { StyleSheet, Image, ImageBackground, View, StatusBar, Platform } from 'react-native';
-import {
-  Text,
-  Button,
-  Icon,
-} from 'native-base';
+import { Text } from 'native-base';
 import { withNavigation } from 'react-navigation';
+import RountButton from '../components/RoundButton';
 
 const background = require('../../assets/images/bg1.png');
 
@@ -59,14 +56,7 @@ const HomeFirstScreen = ({ navigation }) => (
       <Text style={styles.text}>к тренировке?</Text>
       {/* <Icon style={styles.text} name="arrow-round-down" /> */}
     </View>
-    <Button
-      block
-      rounded
-      style={styles.button}
-      onPress={() => navigation.navigate('Sets')}
-    >
-      <Text>Начать</Text>
-    </Button>
+    <RountButton onPress={() => navigation.navigate('Sets')}>Начать</RountButton>
     <Image
       source={sadPerson}
       resizeMode={'contain'}

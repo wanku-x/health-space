@@ -7,9 +7,7 @@ import Sets from './screens/Sets';
 import Statistics from './screens/Statistics';
 
 import Menu from './components/Menu';
-import Set from './components/Set';
-
-import setsArray from './variables/setsArray';
+import Set from './screens/Set';
 
 const HomeStack = createStackNavigator(
   {
@@ -64,17 +62,11 @@ const BottomTabs = createBottomTabNavigator(
   },
   {
     initialRouteName: 'Home',
-    tabBarComponent: props => <Menu {...props} />
+    tabBarComponent: Menu,
   }
 );
 
-const Routes = { BottomTabs: BottomTabs };
-
-for (let set in setsArray) {
-  Routes[set] = {
-    screen: (props) => <Set route={set} {...props} />
-  }
-}
+const Routes = { BottomTabs, Set };
 
 const Navigation = createStackNavigator(
   Routes,

@@ -141,11 +141,11 @@ export default {
 
   // FooterTab
   tabBarTextColor: platform === "ios" ? "#737373" : "#737373",
-  tabBarTextSize: platform === "ios" ? 14 : 11,
+  tabBarTextSize: 11,
   activeTab: platform === "ios" ? "#007aff" : "#007aff",
   sTabBarActiveTextColor: "#007aff",
   tabBarActiveTextColor: platform === "ios" ? "#2874F0" : "#2874F0",
-  tabActiveBgColor: platform === "ios" ? "#cde1f9" : "#cde1f9",
+  tabActiveBgColor: "#F8F8F8",
 
   // Header
   toolbarBtnColor: platform === "ios" ? "#007aff" : "#fff",
