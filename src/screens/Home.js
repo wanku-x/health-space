@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { Platform, StatusBar } from 'react-native';
 import {
   Container,
   Icon,
@@ -14,7 +14,7 @@ const Home = (props) => (
   <Container>
     <StatusBar
       backgroundColor="rgba(0, 0, 0, 0.3)"
-      barStyle="light-content"
+      barStyle={Platform.OS === 'ios' ? 'dark-content' : 'light-content'}
       translucent
     />
     <Swiper

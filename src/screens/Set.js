@@ -3,12 +3,12 @@ import styled from 'styled-components/native';
 import { StatusBar, Platform, StyleSheet } from 'react-native';
 import { Container, Content, Card, CardItem, Body } from 'native-base';
 
-import RountButton from '../components/RoundButton';
+import RoundButton from '../components/RoundButton';
 import { writeCompletedSet } from '../utils/storage';
 
 const styles = StyleSheet.create({
   content: {
-    paddingTop: Platform.OS === 'ios' ? 15 : StatusBar.currentHeight + 15,
+    paddingTop: 36,
     backgroundColor: '#F8F8F8'
   }
 });
@@ -19,7 +19,7 @@ const ButtonWrap = styled.View`
 `;
 
 const Title = styled.Text`
-  padding: 0 16px;
+  padding: 24px 16px 0;
   font-size: 30px;
   font-weight: bold;
 `;
@@ -37,10 +37,16 @@ const Message = styled.Text`
 
 class Set extends React.Component {
   state = {
-    started: false
+    started: false,
+    finishDisabled: true
   };
 
-  handleStart = () => this.setState({ started: true });
+  handleStart = () => {
+    this.setState({ started: true });
+
+    /* предотвращение случайного нажатия на кнопку "Готово", которая появляется вместо "Начать"  */
+    setTimeout(() => this.setState({ finishDisabled: false }), 2000)
+  }
 
   handleFinish = () => {
     const { navigation } = this.props;
@@ -53,7 +59,7 @@ class Set extends React.Component {
 
   render() {
     const { navigation } = this.props;
-    const { started } = this.state;
+    const { started, finishDisabled } = this.state;
     const set = navigation.getParam('set');
 
     return (
@@ -61,22 +67,29 @@ class Set extends React.Component {
         <Content style={styles.content} bounces={false}>
           <Card>
             <CardItem header>
-              <Title>{set.name}</Title>
-            </CardItem>
-            <CardItem>
               <Body>
+                <Title>{set.name}</Title>
                 <Description>{set.discription}</Description>
               </Body>
             </CardItem>
             <CardItem>
-              <Message>Давай начнём упражнение!</Message>
+              <Message>
+                {started
+                  ? 'Выполни упражнение и нажми «Готово»'
+                  : 'Давай начнём упражнение!'}
+              </Message>
             </CardItem>
             <CardItem footer>
               <ButtonWrap>
                 {started ? (
-                  <RountButton onPress={this.handleFinish}>Готово!</RountButton>
+                  <RoundButton
+                    disabled={finishDisabled}
+                    onPress={this.handleFinish}
+                  >
+                    Готово!
+                  </RoundButton>
                 ) : (
-                  <RountButton onPress={this.handleStart}>Начать</RountButton>
+                  <RoundButton onPress={this.handleStart}>Начать</RoundButton>
                 )}
               </ButtonWrap>
             </CardItem>

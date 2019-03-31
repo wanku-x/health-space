@@ -10,10 +10,10 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 30,
     shadowRadius: 0
-  }
+  },
 });
 
-const RountButton = ({ children, ...props }) => (
+const RoundButton = ({ children, ...props }) => (
   <Button
     block
     rounded
@@ -24,4 +24,4 @@ const RountButton = ({ children, ...props }) => (
   </Button>
 );
 
-export default RountButton;
+export default RoundButton;

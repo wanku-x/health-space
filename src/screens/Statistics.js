@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { StatusBar } from 'react-native';
-import { Container, Content, Text } from 'native-base';
+import { Header, Body, Title, Container, Content, Text } from 'native-base';
 
 import { sets } from '../variables/sets';
 import { readCompletedSets } from '../utils/storage';
@@ -21,11 +20,11 @@ class Statistics extends Component {
 
     return (
       <Container>
-        <StatusBar
-          backgroundColor="rgba(0, 0, 0, 0.3)"
-          barStyle="light-content"
-          translucent
-        />
+        <Header>
+          <Body>
+            <Title>Комплексы</Title>
+          </Body>
+        </Header>
         <Content>
           <Text>Statistics</Text>
           {completedSets.map((set, i) => (

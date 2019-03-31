@@ -1,6 +1,8 @@
 import React from 'react';
 import { StatusBar, Platform, StyleSheet } from 'react-native';
 import {
+  Header,
+  Title,
   Body,
   Container,
   Content,
@@ -21,6 +23,11 @@ const styles = StyleSheet.create({
 
 const Sets = ({ navigation }) => (
   <Container>
+    <Header>
+      <Body>
+        <Title>Комплексы</Title>
+      </Body>
+    </Header>
     <Content style={styles.content}>
       {setList.map((setGroup, i) => (
         <React.Fragment key={i}>
